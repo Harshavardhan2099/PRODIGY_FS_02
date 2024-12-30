@@ -1,0 +1,135 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* Vertically aligns the items in the navbar */
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    overflow: hidden;
+}
+
+.title {
+    font-size: 25px;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.actions {
+    display: flex;
+    align-items: center; /* Centers the items vertically */
+    justify-content: flex-end; /* Aligns items to the right */
+    gap: 15px; /* Adds space between the items (Welcome text and Logout/Login) */
+}
+
+.actions p {
+    margin: 0; /* Remove default paragraph margins */
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    color: #FF5733; /* Hover effect for logout button */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack navbar items vertically */
+        align-items: center;
+    }
+
+    .actions {
+        flex-direction: column; /* Stack the actions vertically on smaller screens */
+        align-items: center;
+        gap: 10px; /* Add space between stacked actions */
+    }
+
+    .title {
+        text-align: center; /* Center the title on small screens */
+        margin-bottom: 10px; /* Add some spacing between title and actions */
+    }
+}
+
+
+/* for employee_list.html */
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    align-items: center;
+}
+
+h2 {
+    color: #333;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden; /* For rounded corners */
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Subtle zebra striping */
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1; /* Light hover effect */
+}
+
+
+.button {
+    display: inline-block;
+    padding: 10px 10px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 15px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.button.danger {
+    background-color: #dc3545;
+}
+
+.button.danger:hover {
+    background-color: #a71d2a;
+}
+

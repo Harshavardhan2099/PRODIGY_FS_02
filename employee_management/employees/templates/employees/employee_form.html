@@ -1,0 +1,78 @@
+{% extends 'employees/base.html' %}
+{% block content %}
+<h2>{{ employee|default:"Add New" }} Employee</h2>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="choice">
+            <button type="submit" class="button">Save</button>
+            <a href="{% url 'employee_list' %}" class="button">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<style>
+
+    h2 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f4f4f4;
+        padding-bottom: 20px;
+
+        form {
+            width: 70%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+
+            input {
+                border-radius: 5px;
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                margin-bottom: 15px;
+            }
+
+            input:focus {
+                outline: none;
+                border-color: #4caf50;
+                box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+            }
+
+            .choice {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 50px;
+                padding-bottom: 30px;
+
+                button, a.button {
+                    border-radius: 10px;
+                    border: none;
+                    padding: 10px;
+                }
+
+                .button {
+                    padding: 12px;
+                }
+            }
+        }
+
+    }
+
+</style>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'employees/base.html' %}
+{% block content %}
+
+<div class="options">
+    <h2>Employee List</h2>
+    <a href="{% url 'employee_create' %}" class="button">Add Employee</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.first_name }} {{ employee.last_name }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.position }}</td>
+            <td>${{ employee.salary }}</td>
+            <td>
+                <a href="{% url 'employee_update' employee.id %}" class="edit-text">Edit</a> |
+                <a href="{% url 'employee_delete' employee.id %}" class="delete-text">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<style>
+    .edit-text {
+        text-decoration: none;
+        display: inline-block;
+        letter-spacing: 2px;
+        color: rgb(22, 155, 1); /* Neon Green color */
+        text-shadow: 
+        0 0 3px #0f0, 
+        0 0 4px #0f0, 
+        0 0 5px #0f0, 
+    }
+
+    .delete-text {
+        text-decoration: none;
+        display: inline-block;
+        letter-spacing: 2px;
+        color: rgb(187, 0, 0); /* Neon Red color */
+        text-shadow: 
+        0 0 3px #f00, 
+        0 0 4px #f00, 
+        0 0 5px #f00, 
+    }
+</style>
+
+{% endblock %}

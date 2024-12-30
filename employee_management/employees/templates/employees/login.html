@@ -1,0 +1,70 @@
+{% extends 'employees/base.html' %}
+{% block content %}
+<h2>Login</h2>
+<div class="login-container">
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="button">Login</button>
+            <p class="quote">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+        </form>
+    </div>
+</div>
+<style>
+    h2 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f4f4f4;
+    }
+
+    .container form {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        font-size: 16px;
+        margin: 30px;
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        button {
+            width: 75%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-left: 45px;
+        }
+
+        .quote {
+            margin-left: 50px;
+        }
+    }
+
+    a {
+        text-decoration: none;  /* Remove underline */
+        color: #0000FF;  /* Blue color for links */
+    }
+</style>
+{% endblock %}

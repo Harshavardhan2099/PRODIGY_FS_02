@@ -1,0 +1,31 @@
+{% extends 'employees/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Delete Employee</h2>
+    <p>Are you sure you want to delete {{ employee.first_name }} {{ employee.last_name }}?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="choice">
+            <button type="submit" class="button danger">Delete</button>
+            <a href="{% url 'employee_list' %}" class="button">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .choice {
+            display: flex; 
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 50px;
+            align-items: center;
+        }
+    }
+</style>
+{% endblock %}
